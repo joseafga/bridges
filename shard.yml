@@ -1,0 +1,17 @@
+name: bridges
+version: 0.1.0
+
+authors:
+  - José Almeida <jose.afga@gmail.com>
+
+targets:
+  bridges:
+    main: src/bridges.cr
+
+crystal: 0.35.1
+
+license: MIT
+
+dependencies:
+  crystar:
+    github: naqvis/crystar
