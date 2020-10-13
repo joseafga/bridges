@@ -1,13 +1,13 @@
 # Bridges
 
 PoC (Proof of Concept) of a idea to store package metadata.  
-Today, most packages store metadata within a file. This is simple and efficient 
-in most cases, but the packages are archived with `Tar` and compressed, so when 
-you only need the metadata we are talking about decompressing the file and 
-extracting the metadata.
+Today most packages store metadata within a file. This is simple and efficient 
+in most cases, but the packages are archived with `Tar` (or similar) and 
+compressed, so when you only need the metadata we are talking about decompressing 
+the file and extracting the metadata.
 
 Bridges tries to make a middle ground, the metadata file still exists however 
-it is not archived within `Tar`, just placed at the beginning of the file.
+it is not archived inside `Tar` just prepend it.
 
 ## Concept
 
@@ -18,8 +18,8 @@ file.
 
 ![bridges-diagram](images/diagram.png)
 
-To do this, 4 bytes of information are added, corresponding to the size (in 
-bytes) of the metadata file.  
+To do this, 4 bytes are added corresponding to the size (in bytes) of the 
+metadata file.  
 **Example:**  Start decompression byte by byte, the first 4 bytes are read as a 
 32-bit integer let's imagine the value is **300**, this means that when reading the 
 next 300 bytes we will have the metadata. If only metadata is needed, it is 
